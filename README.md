@@ -58,23 +58,83 @@ Frontend http://localhost:3000 adresinde açılır ve backend'e http://localhost
 ## Proje Yapısı
 
 ```
-spotify-clone/
+Spotify-Clone/
+│
 ├── backend/
-│   ├── core/            # proje ayarları, ana urls.py
-│   ├── accounts/        # kullanıcı modeli, kayıt/giriş
-│   ├── music/           # Artist, Album, Song, Playlist, FavoriteSong
+│   ├── accounts/
+│   │   ├── migrations/
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   │
+│   ├── core/
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   ├── asgi.py
+│   │   └── wsgi.py
+│   │
+│   ├── music/
+│   │   ├── management/
+│   │   │   └── commands/
+│   │   │       └── seed_data.py
+│   │   ├── migrations/
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   │
 │   ├── manage.py
-│   └── requirements.txt
+│   ├── requirements.txt
+│   └── Dockerfile
+│
 ├── frontend/
+│   ├── public/
+│   │   ├── favicon.svg
+│   │   └── icons.svg
+│   │
 │   ├── src/
-│   │   ├── api/          # axios instance (JWT token yönetimi)
-│   │   ├── context/       # AuthContext, PlayerContext
-│   │   ├── components/    # Navbar, PlayerBar, SongRow
-│   │   ├── pages/          # Home, Login, Register, Search, Favorites, Playlists
+│   │   ├── api/
+│   │   │   └── axios.js
+│   │   │
+│   │   ├── assets/
+│   │   │   └── hero.png
+│   │   │
+│   │   ├── components/
+│   │   │   ├── AddToPlaylistMenu.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── PlayerBar.jsx
+│   │   │   └── SongRow.jsx
+│   │   │
+│   │   ├── context/
+│   │   │   ├── AuthContext.jsx
+│   │   │   └── PlayerContext.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Favorites.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Playlists.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── Search.jsx
+│   │   │
 │   │   ├── App.jsx
+│   │   ├── index.css
 │   │   └── main.jsx
-│   └── package.json
-└── docker-compose.yml
+│   │
+│   ├── package.json
+│   ├── vite.config.js
+│   └── Dockerfile
+│
+├── docker-compose.yml
+├── package.json
+├── package-lock.json
+├── .gitignore
+└── README.md
 ```
 
 ## API Uç Noktaları (Endpoints)
