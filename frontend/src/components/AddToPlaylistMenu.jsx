@@ -72,7 +72,7 @@ export default function AddToPlaylistMenu({ song }) {
                 className="w-full text-left px-3 py-2 text-sm hover:bg-neutral-700 flex items-center justify-between"
               >
                 <span className="truncate">{pl.name}</span>
-                {addedTo.has(pl.id) && <span className="text-green-500 text-xs ml-2 shrink-0">Eklendi ✓</span>}
+                {addedTo.has(pl.id) && <span className="text-[#8b5cf6] text-xs ml-2 shrink-0">Eklendi ✓</span>}
               </button>
             ))
           )}

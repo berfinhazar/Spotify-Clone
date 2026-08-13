@@ -31,24 +31,24 @@ export default function Register() {
         <input
           name="username" type="text" placeholder="Kullanıcı adı" value={form.username}
           onChange={handleChange} required
-          className="w-full bg-neutral-800 rounded px-4 py-2 mb-3 outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full bg-neutral-800 rounded px-4 py-2 mb-3 outline-none focus:ring-2 focus:ring-[#8b5cf6]"
         />
         <input
           name="email" type="email" placeholder="E-posta" value={form.email}
           onChange={handleChange}
-          className="w-full bg-neutral-800 rounded px-4 py-2 mb-3 outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full bg-neutral-800 rounded px-4 py-2 mb-3 outline-none focus:ring-2 focus:ring-[#8b5cf6]"
         />
         <input
           name="password" type="password" placeholder="Şifre" value={form.password}
           onChange={handleChange} required
-          className="w-full bg-neutral-800 rounded px-4 py-2 mb-3 outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full bg-neutral-800 rounded px-4 py-2 mb-3 outline-none focus:ring-2 focus:ring-[#8b5cf6]"
         />
         <input
           name="password2" type="password" placeholder="Şifre (tekrar)" value={form.password2}
           onChange={handleChange} required
-          className="w-full bg-neutral-800 rounded px-4 py-2 mb-4 outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full bg-neutral-800 rounded px-4 py-2 mb-4 outline-none focus:ring-2 focus:ring-[#8b5cf6]"
         />
-        <button className="w-full bg-green-500 text-black font-semibold rounded-full py-2 hover:scale-105 transition">
+        <button className="w-full bg-gradient-to-r from-[#ec4899] to-[#8b5cf6] text-white font-semibold rounded-full py-2 hover:scale-105 transition">
           Kayıt Ol
         </button>
         <p className="text-sm text-gray-400 mt-4 text-center">

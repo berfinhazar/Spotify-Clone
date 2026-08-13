@@ -45,9 +45,9 @@ export default function Playlists() {
           value={newName}
           onChange={(e) => setNewName(e.target.value)}
           placeholder="Yeni çalma listesi adı..."
-          className="flex-1 bg-neutral-800 rounded px-4 py-2 outline-none focus:ring-2 focus:ring-green-500"
+          className="flex-1 bg-neutral-800 rounded px-4 py-2 outline-none focus:ring-2 focus:ring-[#8b5cf6]"
         />
-        <button className="bg-green-500 text-black font-semibold rounded-full px-4 hover:scale-105 transition">
+        <button className="bg-gradient-to-r from-[#ec4899] to-[#8b5cf6] text-white font-semibold rounded-full px-4 hover:scale-105 transition">
           Oluştur
         </button>
       </form>
