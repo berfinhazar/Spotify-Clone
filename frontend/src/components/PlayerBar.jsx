@@ -1,4 +1,8 @@
+import { useState, useEffect } from 'react'
 import { usePlayer } from '../context/PlayerContext'
+import { useAuth } from '../context/AuthContext'
+import api from '../api/axios'
+import { Volume2, VolumeX, Volume1 } from 'lucide-react'
 
 function formatTime(seconds) {
   if (!seconds || isNaN(seconds)) return '0:00'
@@ -23,6 +27,24 @@ export default function PlayerBar() {
     setVolume,
   } = usePlayer()
 
+
+const { user } = useAuth()
+  const [isFav, setIsFav] = useState(false)
+
+  useEffect(() => {
+    setIsFav(Boolean(currentSong?.is_favorited))
+  }, [currentSong?.id, currentSong?.is_favorited])
+
+  const toggleFavorite = async () => {
+    if (!user || !currentSong) return
+    try {
+      const { data } = await api.post(`/songs/${currentSong.id}/toggle_favorite/`)
+      setIsFav(data.is_favorited)
+    } catch (error) {
+      console.error('Favori işlemi başarısız:', error)
+    }
+  }
+
   if (!currentSong) return null
 
   return (
@@ -46,13 +68,20 @@ export default function PlayerBar() {
             </p>
           </div>
 
-          <button className="player-heart">
-            ♡
-          </button>
+          {user && (
+            <button
+              onClick={toggleFavorite}
+              className="player-heart"
+              style={{ color: isFav ? '#ec4899' : undefined, opacity: isFav ? 1 : undefined }}
+              title={isFav ? 'Favorilerden çıkar' : 'Favorilere ekle'}
+            >
+              {isFav ? '♥' : '♡'}
+            </button>
+          )}
         </div>
 
 
-        {/* ================= CENTER CONTROLS ================= */}
+        {/*  CENTER CONTROLS  */}
         <div className="player-center">
 
           <div className="player-controls">
@@ -115,11 +144,17 @@ export default function PlayerBar() {
         </div>
 
 
-        {/* ================= VOLUME ================= */}
+        {/* VOLUME  */}
         <div className="player-volume">
 
           <span className="volume-icon">
-            {volume === 0 ? '×' : '◖'}
+            {volume === 0 ? (
+              <VolumeX size={16} />
+            ) : volume < 0.5 ? (
+              <Volume1 size={16} />
+            ) : (
+              <Volume2 size={16} />
+            )}
           </span>
 
           <input
