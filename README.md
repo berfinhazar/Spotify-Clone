@@ -2,6 +2,11 @@
 
 Django REST Framework (backend) + React (frontend) ile geliştirilmiş bir müzik streaming uygulaması.
 
+## 🌐 Canlı Uygulama
+
+🎧 **Vibefy:** https://spotify-clone-eight-psi-84.vercel.app
+
+🔗 **Backend API:** https://spotify-clone-backend-l45k.onrender.com
 ## Özellikler
 - Kullanıcı kayıt/giriş sistemi (JWT tabanlı authentication)
 - Şarkı, albüm, sanatçı listeleme
